@@ -1,0 +1,36 @@
+<configuration status="error">
+	<properties>
+		<property name="name">app</property>
+		<property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} %msg%n</property>
+	</properties>
+	<appenders>
+		<console name="Console" target="SYSTEM_OUT"></console>
+
+
+		<rollingfile filename="logs/name.log"
+			filepattern="logs/$${date:yyyy-MM}/name-%d{yyyy-MM-dd}-%i.log" name="log">
+			<patternlayout>
+				<pattern>${pattern}</pattern>
+			</patternlayout>
+			<policies>
+				<!-- <TimeBasedTriggeringPolicy ></TimeBasedTriggeringPolicy> --><!-- Rotated everyday -->
+				<sizebasedtriggeringpolicy size="1 MB"> <!-- Or every 100 MB -->
+				</sizebasedtriggeringpolicy>
+			</policies>
+		</rollingfile>
+
+	</appenders>
+
+	<loggers>
+		<root level="error">
+			<appenderref ref="Console" />
+		</root>
+
+<!-- 		<logger name="jdbc.sqlonly" level="error"> -->
+<!-- 			<appenderref ref="log" /> -->
+<!-- 		</logger> -->
+		<logger name="jdbc.sqltiming" level="info" additivity="false">
+			<appenderref ref="log" />
+		</logger>
+	</loggers>
+</configuration>
