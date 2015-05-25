@@ -1,0 +1,43 @@
+<configuration status="warn">
+	<properties>
+		<property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} %msg%n</property>
+	</properties>
+	<appenders>
+		<console name="console" target="SYSTEM_OUT"></console>
+
+		<rollingfile name="trace" filename="logs/trace.log"
+			filepattern="logs/$${date:yyyyMM}/%d{yyyyMMdd}-%i.log">
+			<patternlayout>
+				<pattern>${pattern}</pattern>
+			</patternlayout>
+			<policies>
+				<!-- <TimeBasedTriggeringPolicy ></TimeBasedTriggeringPolicy> --><!-- Rotated everyday -->
+				<sizebasedtriggeringpolicy size="1 MB"> <!-- Or every 100 MB -->
+				</sizebasedtriggeringpolicy>
+			</policies>
+		</rollingfile>
+	</appenders>
+
+	<loggers>
+		<root level="error">
+			<appenderref ref="console" />
+		</root>
+
+		<!-- <logger name="jdbc.sqlonly" level="error"> -->
+		<!-- <appenderref ref="trace" /> -->
+		<!-- </logger> -->
+		<logger name="jdbc.sqltiming" level="debug" additivity="false">
+			<appenderref ref="trace" />
+		</logger>
+
+		<logger name="org.springframework" level="info" additivity="false">
+			<appenderref ref="console" />
+			<appenderref ref="trace" />
+		</logger>
+
+		<logger name="app" level="debug" additivity="false">
+			<appenderref ref="trace" />
+		</logger>
+
+	</loggers>
+</configuration>
