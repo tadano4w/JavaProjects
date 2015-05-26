@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="/booklist2/add" method="post" th:object="${book}">
+		名前　：　<input type="text" th:field="*{name}" size="20" /><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span><br />
+		価格　：　<input type="text" th:field="*{price}" size="20" /><span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</span><br />
+		<button type="submit">追加</button>
+	</form>
+</body>
+</html>
