@@ -8,12 +8,6 @@ public class BusinessErrorException extends RuntimeException {
     /** シリアルバージョンID */
     private static final long serialVersionUID = 1L;
 
-    /** デフォルトメッセージID */
-    private static final String DEFAULT_MESSAGE_ID = "businessError.defaultMessage";
-
-    /** メッセージID */
-    private String messageId = DEFAULT_MESSAGE_ID;
-
     /**
      * コンストラクタ
      */
@@ -47,21 +41,5 @@ public class BusinessErrorException extends RuntimeException {
      */
     public BusinessErrorException(String message, Throwable cause) {
         super(message, cause);
-    }
-
-    /**
-     * メッセージIDを取得します。
-     * @return メッセージID
-     */
-    public String getMessageId() {
-        return messageId;
-    }
-
-    /**
-     * メッセージIDを設定します。
-     * @param messageId メッセージID
-     */
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
     }
 }
