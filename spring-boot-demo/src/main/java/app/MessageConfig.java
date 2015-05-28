@@ -14,7 +14,7 @@ public class MessageConfig extends WebMvcConfigurerAdapter {
     @Bean
     ReloadableResourceBundleMessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasenames("classpath:i18n/messages");
+        messageSource.setBasenames("classpath:i18n/messages", "classpath:i18n/labels");
         messageSource.setCacheSeconds(0);
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;

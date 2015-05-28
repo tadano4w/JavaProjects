@@ -12,6 +12,6 @@ public class BookValidator implements Validator {
 	}
 
 	public void validate(Object obj, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "validation.error.notNull");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "validation.error.notNull", new Object[] { "名前" });
 	}
 }
