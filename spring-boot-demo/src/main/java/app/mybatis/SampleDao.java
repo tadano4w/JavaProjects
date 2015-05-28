@@ -1,6 +1,6 @@
 package app.mybatis;
 
-import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -8,10 +8,15 @@ import org.springframework.stereotype.Repository;
 public class SampleDao {
 
 	@Autowired
-	SqlSession sqlSession;
+	SqlSessionTemplate sqlSession;
 
 	public SampleData getValue() {
 		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
 		return mapper.select();
+	}
+
+	public void insertName(String name) {
+		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		mapper.insertName(name);
 	}
 }

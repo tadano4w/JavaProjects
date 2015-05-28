@@ -6,4 +6,8 @@
   <select id="select" resultType="app.mybatis.SampleData">
     select 1 AS value
   </select>
+
+  <insert id="insertName" parameterType="java.lang.String">
+    insert into test (name) values (#{value})
+  </insert>
 </mapper>

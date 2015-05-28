@@ -35,7 +35,7 @@ public class InfoLogInterceptor {
 			}
 
 			if (log.isInfoEnabled()) {
-				log.info(outResult.toString());
+				log.info("" + outResult);
 			}
 
 			return result;

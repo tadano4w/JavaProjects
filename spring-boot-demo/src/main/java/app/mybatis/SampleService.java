@@ -10,8 +10,17 @@ public class SampleService {
 	@Autowired
 	SampleDao dao;
 
-	@Transactional
 	public SampleData getValue() {
 		return dao.getValue();
+	}
+
+	// @Transactionalを指定すると、自動でコミット/ロールバックが行われる
+	@Transactional
+	public void register(String name) {
+		dao.insertName(name);
+
+    	if (name.contains("error")) {
+    		throw new RuntimeException();
+    	}
 	}
 }

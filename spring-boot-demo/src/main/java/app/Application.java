@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan
 @Configuration
 
-// TODO: 実際にこれと@Transactionalの指定でトランザクション管理できているかは要確認
 @EnableTransactionManagement
 public class Application {
 
