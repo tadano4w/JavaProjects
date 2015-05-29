@@ -1,5 +1,6 @@
 package app.db;
 
+
 /**
  * DBアクセスヘルパ
  */
@@ -55,7 +56,7 @@ public final class DbAccessHelper {
      */
     private static String escapeLike(String str) {
         if (str == null) {
-            throw new IllegalArgumentException("nullが指定されました。");
+            throw new NullPointerException();
         }
 
         int length = str.length();
