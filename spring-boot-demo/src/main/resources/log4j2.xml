@@ -1,4 +1,7 @@
 <configuration status="warn">
+
+	<!--  https://logging.apache.org/log4j/2.x/manual/configuration.html -->
+
 	<properties>
 		<property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} %msg%n</property>
 	</properties>
@@ -23,15 +26,18 @@
 			<appenderref ref="console" />
 		</root>
 
-		<!-- <logger name="jdbc.sqlonly" level="error"> -->
+		<!-- additivityは親のloggerにも伝播するかどうかを指定する属性 -->
+
+		<!-- <logger name="jdbc.sqlonly" level="debug"> -->
 		<!-- <appenderref ref="trace" /> -->
 		<!-- </logger> -->
+
+		<!-- SQLと実行時間を出力 -->
 		<logger name="jdbc.sqltiming" level="debug" additivity="false">
 			<appenderref ref="trace" />
 		</logger>
 
 		<logger name="org.springframework" level="info" additivity="false">
-			<appenderref ref="console" />
 			<appenderref ref="trace" />
 		</logger>
 
