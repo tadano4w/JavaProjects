@@ -16,6 +16,8 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import app.db.Mapper;
+
 //Springの設定であることを示す
 @Configuration
 
@@ -24,7 +26,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 
 // mybatisのMapperを自動検出する
-@MapperScan(basePackages = "app")
+// annotationClassを使用しているのは、Mapperとは無関係のインタフェースまでスキャン対象となり、
+// ComponentScanで登録される実装クラスと競合する問題があったため。
+// 例えば、SampleDao、SampleDaoImpleが同一の名前「sampleDao」として登録され、Autowiredできなくなる。
+@MapperScan(basePackages="app", annotationClass=Mapper.class)
 public class DBConfig {
 
 	/**
@@ -67,7 +72,7 @@ public class DBConfig {
     /**
      * トランザクション管理 Bean定義
      * @param dataSource データソース
-     * @return トランザクション管理
+     * @return
      */
     @Bean
 	public PlatformTransactionManager transactionManager(DataSource dataSource) {
