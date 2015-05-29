@@ -11,7 +11,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //Springの設定であることを示す
@@ -61,4 +63,14 @@ public class DBConfig {
 
         return new SqlSessionTemplate(factoryBean.getObject());
     }
+
+    /**
+     * トランザクション管理 Bean定義
+     * @param dataSource データソース
+     * @return トランザクション管理
+     */
+    @Bean
+	public PlatformTransactionManager transactionManager(DataSource dataSource) {
+		return new DataSourceTransactionManager(dataSource);
+	}
 }

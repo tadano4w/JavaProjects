@@ -19,4 +19,14 @@ public class SampleDao {
 		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
 		mapper.insertName(name);
 	}
+
+	public int deleteAll() {
+		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		return mapper.deleteAll();
+	}
+
+	public String selectName() {
+		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		return mapper.selectName();
+	}
 }

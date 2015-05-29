@@ -23,4 +23,12 @@ public class SampleService {
     		throw new RuntimeException();
     	}
 	}
+
+	public String getName() {
+		return dao.selectName();
+	}
+
+	public int deleteAll() {
+		return dao.deleteAll();
+	}
 }

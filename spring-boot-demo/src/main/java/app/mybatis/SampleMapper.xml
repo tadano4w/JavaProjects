@@ -10,4 +10,12 @@
   <insert id="insertName" parameterType="java.lang.String">
     insert into test (name) values (#{value})
   </insert>
+
+  <delete id="deleteAll">
+    delete from test
+  </delete>
+
+  <select id="selectName" resultType="java.lang.String">
+    select name from test limit 1
+  </select>
 </mapper>
