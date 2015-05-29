@@ -2,14 +2,13 @@ package app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+// Springのデフォルト設定を有効化する
 @EnableAutoConfiguration
-@ComponentScan
-@Configuration
 
-@EnableTransactionManagement
+// Springのコンポーネントを自動検出する
+@ComponentScan
+
 public class Application {
 
     public static void main(String[] args) {

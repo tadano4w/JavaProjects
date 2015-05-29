@@ -25,11 +25,10 @@ public class BookListController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	String add(@Valid @ModelAttribute("modelName") Book book, BindingResult errors) {
+	String add(@Valid @ModelAttribute("book") Book book, BindingResult errors) {
 
-		// @ModelAttribute#valueを指定しなければ、クラス名を先頭小文字にした文字がモデル名となり、
-		// それがビュー側で参照する際の名前になる。
-
+		// @ModelAttribute#valueを指定しすると明示的にモデル名が指定でき、それがビュー側で参照する際の名前になる。
+		// 指定しない場合は、クラス名を先頭小文字にした名前になる。
 		if (errors.hasErrors()) {
 			return "/booklist/index";
 		}

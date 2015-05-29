@@ -4,9 +4,16 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
+<!--
+	https://mybatis.github.io/mybatis-3/ja/configuration.html
+ -->
 <configuration>
   <settings>
+    <!-- アンダースコア区切りの列をキャメルケースのJavaプロパティに自動マッピングする -->
     <setting name="mapUnderscoreToCamelCase" value="true" />
+
+    <!-- キャッシュはステートメント毎とする。
+         同一 SqlSession に対する複数の呼び出しでデータが共有させない。 -->
     <setting name="localCacheScope" value="STATEMENT" />
   </settings>
 </configuration>
