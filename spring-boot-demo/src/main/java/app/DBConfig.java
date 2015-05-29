@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 // mybatisのMapperを自動検出する
 @MapperScan(basePackages = "app")
-public class ApplicationDataSourceConfiguration {
+public class DBConfig {
 
 	/**
 	 * データソース Bean定義

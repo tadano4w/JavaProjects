@@ -12,7 +12,7 @@ import app.interceptors.ControllerInterceptor;
 /**
  * Webアプリケーション設定
  */
-public class ApplicationWebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
 	/**
 	 * Controllerに追加するインタセプタの設定
