@@ -20,7 +20,7 @@ public class App {
 		try {
 			Class.forName("net.sf.log4jdbc.DriverSpy");
 			connection = DriverManager.getConnection(
-					"jdbc:log4jdbc:postgresql://192.168.1.236:5432/dsl_ut02?user=postgres&password=postgres");
+					"jdbc:log4jdbc:postgresql://xxx.xxx.xxx.xxx:5432/xxxxx?user=xxxxx&password=xxxxx");
 			stmt = connection.prepareStatement("SELECT user_id, ? AS value FROM m_user");
 			stmt.setString(1, "dynamic");
 			rs = stmt.executeQuery();
